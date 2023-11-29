@@ -142,7 +142,7 @@ class Weather(Tk):
         try:
             # getting the weather information
             city = self.search.get()
-            api_key = "5a0997ca9cc75fab84466bf16ee461a8"
+            api_key = "yourkey"
             weather_url = f'http://api.openweathermap.org/data/2.5/weather?q={city}&appid={api_key}'
             weather_response = requests.get(weather_url)
 
@@ -278,7 +278,7 @@ class Weather(Tk):
 
         # Set up the email
         msg = MIMEMultipart()
-        msg["From"] = "dashhello33@gmail.com"  
+        msg["From"] = "youremail@gmail.com"  
         msg["To"] = to_address
         msg["Subject"] = "Weather Update"
         msg.attach(MIMEText(message, "plain"))
@@ -286,8 +286,8 @@ class Weather(Tk):
         try:
             with smtplib.SMTP("smtp.gmail.com", 587) as server:
                 server.starttls()
-                server.login("dashhello33@gmail.com", "nhel pqkf plpl afzy")  
-                server.sendmail("dashello33@gmail.com", to_address, msg.as_string())
+                server.login("youremail@gmail.com", "your password")  
+                server.sendmail("youremail@gmail.com", to_address, msg.as_string())
             messagebox.showinfo("Success", "Email sent successfully!")
         except smtplib.SMTPException as e:
             messagebox.showerror("Error", f"Failed to send email. Error: {str(e)}")
